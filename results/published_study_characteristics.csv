@@ -1,0 +1,16 @@
+Characteristic,Value,Status
+Participants,48,Published study record
+ADHD participants,25,Published study record
+Control participants,23,Published study record
+Age range,6-18 years,Published study record
+ADHD epochs,20294,Published study record
+Control epochs,19968,Published study record
+PSG channels,17,Published study record
+EEG channels,8,Published study record
+EOG channels,2,Published study record
+EMG channels,5,Published study record
+ECG channels,2,Published study record
+Sampling frequency,512 Hz,Published study record
+Epoch duration,30 seconds,Published study record
+Sleep stages,5,Published study record
+Classifier,Random Forest,Published study record

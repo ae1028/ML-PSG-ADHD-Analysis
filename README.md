@@ -68,9 +68,9 @@ These metrics highlight the model's balanced performance in detecting ADHD cases
 ## Feature Importance
 
 **Permutation analysis** was applied to assess the contribution of each sleep stage. The most important features for ADHD classification were:
-- **Sleep Stage 3-4** (Importance Ã¢â€°Ë† 0.14)
-- **Sleep Stage 1** (Importance Ã¢â€°Ë† 0.12)
-- **Wake** (Importance Ã¢â€°Ë† 0.09)
+- **Sleep Stage 3-4** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.14)
+- **Sleep Stage 1** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.12)
+- **Wake** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.09)
 
 Shuffling these features resulted in significant drops in model performance, underscoring their relevance in ADHD diagnosis.
 
@@ -155,3 +155,37 @@ Development and test dependencies:
 For complete setup instructions, see:
 
 `docs/INSTALLATION.md`
+
+## Published Study Results
+
+The reported average Random Forest classification performance was:
+
+| Metric | Value |
+| --- | ---: |
+| Accuracy | 0.72 |
+| Precision | 0.71 |
+| Recall | 0.85 |
+| F1 score | 0.76 |
+
+Study characteristics include:
+
+- 48 participants;
+- 25 ADHD and 23 control participants;
+- ages 6-18 years;
+- 20,294 ADHD epochs;
+- 19,968 control epochs;
+- 17 PSG channels;
+- 30-second epochs sampled at 512 Hz.
+
+These are publication-record values.
+
+Outputs from the public synthetic demonstration are software-test
+artifacts and must not be interpreted as study results.
+
+See:
+
+- `docs/RESULTS.md`
+- `results/README.md`
+- `docs/PUBLICATION.md`
+
+for detailed result provenance and interpretation.

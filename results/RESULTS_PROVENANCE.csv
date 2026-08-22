@@ -1,0 +1,6 @@
+Artifact,Meaning,Scientific_Status
+published_performance_metrics.csv,Reported study-level classifier metrics,Published record
+published_study_characteristics.csv,Reported study population and PSG characteristics,Published record
+sleep_stage_mapping.csv,Historical sleep-stage feature-name mapping,Historical/published workflow record
+Synthetic demo outputs,Software connectivity demonstration only,Not scientific results
+historical code outputs,Outputs produced by preserved implementation,Do not assume exact published reproduction

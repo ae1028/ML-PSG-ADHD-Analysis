@@ -1,0 +1,5 @@
+Metric,Value,Scope,Status
+Accuracy,0.72,Published nested-cross-validation average,Published record
+Precision,0.71,Published nested-cross-validation average,Published record
+Recall,0.85,Published nested-cross-validation average,Published record
+F1,0.76,Published nested-cross-validation average,Published record
