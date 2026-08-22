@@ -68,9 +68,9 @@ These metrics highlight the model's balanced performance in detecting ADHD cases
 ## Feature Importance
 
 **Permutation analysis** was applied to assess the contribution of each sleep stage. The most important features for ADHD classification were:
-- **Sleep Stage 3-4** (Importance ≈ 0.14)
-- **Sleep Stage 1** (Importance ≈ 0.12)
-- **Wake** (Importance ≈ 0.09)
+- **Sleep Stage 3-4** (Importance â‰ˆ 0.14)
+- **Sleep Stage 1** (Importance â‰ˆ 0.12)
+- **Wake** (Importance â‰ˆ 0.09)
 
 Shuffling these features resulted in significant drops in model performance, underscoring their relevance in ADHD diagnosis.
 
@@ -94,3 +94,43 @@ To run this project, the following Python libraries are required:
 You can install all dependencies via:
 ```bash
 pip install -r requirements.txt
+
+## Public Synthetic Demonstration
+
+The original participant-level PSG recordings are not distributed with
+this repository.
+
+A fully artificial end-to-end demonstration is provided so the software
+pipeline can be exercised without access to protected clinical data.
+
+```bash
+python scripts/run_synthetic_demo.py \
+    --work-dir outputs/synthetic_demo \
+    --participants 10 \
+    --overwrite
+```
+
+The demonstration runs:
+
+```text
+synthetic PSG generation
+        -> graph feature extraction
+        -> participant feature table
+        -> lightweight Random Forest smoke test
+        -> result tables
+```
+
+The generated synthetic signals, labels, metrics, and feature
+importances have no clinical interpretation and are not reproductions
+of the study data.
+
+See:
+
+- `docs/QUICKSTART.md`
+- `docs/DATA_BOUNDARY.md`
+- `docs/FEATURE_SCHEMA.md`
+- `docs/SYNTHETIC_PSG.md`
+- `docs/MODELING.md`
+
+for details on execution, data boundaries, feature structure, synthetic
+inputs, and historical modeling behavior.

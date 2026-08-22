@@ -90,3 +90,26 @@ authorization for any clinical or participant-level data they process.
 Raw recordings, identifying metadata, participant-derived screenshots,
 and other sensitive clinical artifacts must remain outside the public
 repository.
+
+## Public repository data boundary
+
+The original participant-level PSG recordings are not included in this
+repository.
+
+The checked-in CSV files under `examples/synthetic_features/` are
+completely artificial and use synthetic `SYN###` participant
+identifiers.
+
+Users who want to exercise the PSG-to-feature software path can generate
+fully artificial MNE Epochs FIF files locally with:
+
+```bash
+python scripts/generate_synthetic_psg.py \
+    --output-dir examples/generated_synthetic_psg \
+    --participants 10 \
+    --overwrite
+```
+
+Generated FIF files remain local and are excluded from version control.
+
+For the full public-data policy, see `docs/DATA_BOUNDARY.md`.
