@@ -68,9 +68,9 @@ These metrics highlight the model's balanced performance in detecting ADHD cases
 ## Feature Importance
 
 **Permutation analysis** was applied to assess the contribution of each sleep stage. The most important features for ADHD classification were:
-- **Sleep Stage 3-4** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.14)
-- **Sleep Stage 1** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.12)
-- **Wake** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.09)
+- **Sleep Stage 3-4** (Importance ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â  0.14)
+- **Sleep Stage 1** (Importance ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â  0.12)
+- **Wake** (Importance ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â  0.09)
 
 Shuffling these features resulted in significant drops in model performance, underscoring their relevance in ADHD diagnosis.
 
@@ -210,3 +210,16 @@ CLI smoke checks on pushes and pull requests.
 See:
 
 `docs/VALIDATION.md`
+
+## Citation
+
+If you use this repository or its associated methodology, please cite:
+
+> A. Eskorouchi, H. Wang, J. W. Lee, V. H. Nayak, N. B. Ojeda, and L.-W. Fan, "Machine Learning-Based Polysomnography Data Analysis for ADHD Diagnosis: A Focus on Sleep Stage-Based Biomarkers," in *Proceedings of the 2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI 2025)*, Houston, TX, 2025, pp. 1-4. DOI: `10.1109/ISBI60581.2025.10981031`
+
+Machine-readable citation metadata are available in:
+
+- `CITATION.cff`
+- `CITATION.bib`
+
+See `docs/CITATION.md` for details.

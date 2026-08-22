@@ -44,3 +44,33 @@ independently confirmed.
 The authoritative publication identifier is:
 
 `10.1109/ISBI60581.2025.10981031`
+
+## Authors
+
+The publication author order is:
+
+1. A. Eskorouchi
+2. H. Wang
+3. J. W. Lee
+4. V. H. Nayak
+5. N. B. Ojeda
+6. L.-W. Fan
+
+## Proceedings citation
+
+A. Eskorouchi, H. Wang, J. W. Lee, V. H. Nayak, N. B. Ojeda, and
+L.-W. Fan, "Machine Learning-Based Polysomnography Data Analysis for
+ADHD Diagnosis: A Focus on Sleep Stage-Based Biomarkers," in
+*Proceedings of the 2025 IEEE 22nd International Symposium on
+Biomedical Imaging (ISBI 2025)*, Houston, TX, 2025, pp. 1-4.
+
+DOI:
+
+`10.1109/ISBI60581.2025.10981031`
+
+Machine-readable citation metadata are provided in:
+
+- `CITATION.cff`
+- `CITATION.bib`
+
+See `docs/CITATION.md` for citation guidance.

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated IEEE ISBI 2025 publication."
+title: "ML-PSG-ADHD-Analysis"
+type: software
+version: 0.1.0
+
+authors:
+  - family-names: Eskorouchi
+    given-names: Amir
+
+keywords:
+  - polysomnography
+  - ADHD
+  - machine learning
+  - graph analysis
+  - sleep stages
+  - Random Forest
+  - biomedical imaging
+
+preferred-citation:
+  type: conference-paper
+  title: "Machine Learning-Based Polysomnography Data Analysis for ADHD Diagnosis: A Focus on Sleep Stage-Based Biomarkers"
+  authors:
+    - family-names: Eskorouchi
+      given-names: Amir
+    - family-names: Wang
+      given-names: "H."
+    - family-names: Lee
+      given-names: "J. W."
+    - family-names: Nayak
+      given-names: "V. H."
+    - family-names: Ojeda
+      given-names: "N. B."
+    - family-names: Fan
+      given-names: "L.-W."
+  year: 2025
+  doi: "10.1109/ISBI60581.2025.10981031"

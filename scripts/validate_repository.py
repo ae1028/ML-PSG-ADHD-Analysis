@@ -66,6 +66,10 @@ REQUIRED_FILES = [
     "requirements-historical.txt",
     "requirements-dev.txt",
 
+    "CITATION.cff",
+    "CITATION.bib",
+    "docs/CITATION.md",
+
     "docs/DATA.md",
     "docs/DATA_BOUNDARY.md",
     "docs/FEATURE_SCHEMA.md",
