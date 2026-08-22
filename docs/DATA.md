@@ -1,26 +1,92 @@
 # Data
 
-## Scope
+## Public data boundary
 
-This repository does not distribute the original polysomnography (PSG)
-recordings used in the study.
+The original clinical polysomnography recordings are not distributed
+through this repository.
 
-The original analysis used participant-level PSG recordings and
-sleep-stage annotations. Data-access requirements, expected input
-structure, and preprocessing assumptions will be documented here during
-the reconstruction.
+No participant-derived raw PSG files are required to be committed to
+Git in order to inspect, test, or understand the reconstructed software.
 
-## Public repository boundary
+The repository `.gitignore` excludes common PSG formats and local data
+directories.
 
-Raw clinical PSG data must remain outside version control.
+## Historical input representation
 
-The repository will eventually provide:
+The reconstructed feature-extraction workflow expects MNE Epochs FIF
+files compatible with:
 
-- expected input organization;
-- required metadata;
-- supported PSG file format(s);
-- sleep-stage mapping;
-- feature-table schema;
-- instructions for running the pipeline with authorized local data.
+```python
+mne.read_epochs(file_path, preload=True)
+```
 
-No participant-derived raw data should be committed to this repository.
+The historical analysis relies on two metadata concepts.
+
+### Participant ID
+
+Participant membership is obtained from the Epochs metadata column:
+
+```text
+ID
+```
+
+### ADHD label
+
+The historical participant-level label is obtained from:
+
+```text
+ADHD
+```
+
+The historical implementation uses the first matching metadata row for
+the participant when constructing the final feature table.
+
+## Sleep-stage representation
+
+Sleep stages are represented by the integer event code in:
+
+```python
+epochs.events[:, 2]
+```
+
+The reconstructed historical-compatible implementation discovers the
+sleep IDs present in each concatenated processing batch rather than
+forcing a global list during extraction.
+
+Historical study documentation describes five sleep-stage-derived
+features:
+
+- Wake
+- Stage 1
+- Stage 2
+- Stage 3-4
+- REM
+
+The numerical event-code mapping must come from the authorized local
+Epochs data and its event definitions. The public repository does not
+invent an event-code mapping that cannot be verified from the original
+data.
+
+## Generated feature table
+
+For sleep IDs present in a given batch, output columns follow the
+historical naming convention:
+
+```text
+Patient_ID
+Sleep_ID_1
+Sleep_ID_2
+...
+ADHD
+```
+
+Generated feature CSV files are derived artifacts, not raw PSG data.
+
+## Privacy and data governance
+
+Users of this repository are responsible for obtaining appropriate
+authorization for any clinical or participant-level data they process.
+
+Raw recordings, identifying metadata, participant-derived screenshots,
+and other sensitive clinical artifacts must remain outside the public
+repository.
