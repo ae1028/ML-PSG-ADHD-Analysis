@@ -81,6 +81,8 @@ REQUIRED_FILES = [
     "docs/QUICKSTART.md",
     "docs/REPRODUCIBILITY.md",
     "docs/RESULTS.md",
+    "docs/REPOSITORY_MAP.md",
+    "docs/RELEASE_CHECKLIST.md",
     "docs/SYNTHETIC_PSG.md",
 
     "configs/historical_integrated_pipeline.yaml",
