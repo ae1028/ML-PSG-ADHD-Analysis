@@ -68,9 +68,9 @@ These metrics highlight the model's balanced performance in detecting ADHD cases
 ## Feature Importance
 
 **Permutation analysis** was applied to assess the contribution of each sleep stage. The most important features for ADHD classification were:
-- **Sleep Stage 3-4** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.14)
-- **Sleep Stage 1** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.12)
-- **Wake** (Importance ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  0.09)
+- **Sleep Stage 3-4** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.14)
+- **Sleep Stage 1** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.12)
+- **Wake** (Importance ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  0.09)
 
 Shuffling these features resulted in significant drops in model performance, underscoring their relevance in ADHD diagnosis.
 
@@ -189,3 +189,24 @@ See:
 - `docs/PUBLICATION.md`
 
 for detailed result provenance and interpretation.
+
+## Validation and Continuous Integration
+
+Run the complete repository integrity check with:
+
+```bash
+python scripts/validate_repository.py
+```
+
+Run the automated test suite with:
+
+```bash
+python -m pytest -q
+```
+
+GitHub Actions automatically performs repository validation, tests, and
+CLI smoke checks on pushes and pull requests.
+
+See:
+
+`docs/VALIDATION.md`
