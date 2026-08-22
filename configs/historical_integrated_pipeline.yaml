@@ -1,0 +1,106 @@
+# Historical configuration reconstructed directly from
+# "Feature extraction (Sleep stages).py".
+#
+# This records historical implementation behavior.
+# It is NOT yet claimed to be an exact published-results
+# reproduction configuration.
+
+project:
+  name: ML-PSG-ADHD-Analysis
+  study: IEEE ISBI 2025 PSG-based ADHD analysis
+
+data:
+  input_format: fif
+  patient_id_column: ID
+  label_column: ADHD
+  positive_label: Y
+
+feature_extraction:
+  batch_size: 10
+
+  sleep_stage_source:
+    type: mne_event_id
+    historical_feature_columns:
+      - Sleep_ID_1
+      - Sleep_ID_2
+      - Sleep_ID_3
+      - Sleep_ID_4
+      - Sleep_ID_5
+
+  connectivity:
+    method: pearson_correlation
+    absolute_value: true
+    epoch_level: true
+    aggregation_within_patient_stage: mean
+
+  graph:
+    constructor: networkx.from_numpy_array
+    shortest_path_weight: weight
+    feature: average_shortest_path_length
+
+  missing_stage_feature:
+    strategy: stage_mean_imputation
+
+feature_table:
+  id_column: Patient_ID
+  label_column: ADHD
+  feature_columns:
+    - Sleep_ID_1
+    - Sleep_ID_2
+    - Sleep_ID_3
+    - Sleep_ID_4
+    - Sleep_ID_5
+
+modeling:
+  estimator: RandomForestClassifier
+
+  historical_augmentation:
+    enabled: true
+    method: sign_inversion
+    description: "X_augmented = [X; -X], with labels duplicated"
+
+  nested_cross_validation:
+    outer:
+      method: KFold
+      n_splits: 5
+      shuffle: true
+      random_state: 42
+
+    inner:
+      method: GridSearchCV
+      cv: 5
+      refit: accuracy
+      n_jobs: -1
+
+  random_forest:
+    random_state: 42
+
+  parameter_grid:
+    n_estimators:
+      - 100
+      - 200
+      - 300
+    max_depth:
+      - 10
+      - 20
+      - 30
+    min_samples_split:
+      - 2
+      - 5
+      - 10
+    min_samples_leaf:
+      - 1
+      - 2
+      - 4
+
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+
+reproducibility:
+  historical_shuffle_random_state: 42
+  status: historical_integrated_script
+  publication_result_reproduction_verified: false
