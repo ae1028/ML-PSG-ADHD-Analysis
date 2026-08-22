@@ -21,3 +21,10 @@
 *.gif binary
 *.pptx binary
 *.docx binary
+# ------------------------------------------------------------
+# Historical provenance snapshots
+# ------------------------------------------------------------
+# Preserve the exact byte representation of historical source files.
+# These files intentionally retain their original CRLF line endings
+# because their SHA-256 hashes are part of the provenance record.
+reference_implementations/published_pipeline/*.py -text -eol

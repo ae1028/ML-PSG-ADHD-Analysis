@@ -183,3 +183,20 @@ of the historical scientific dependency record.
 Installation instructions are available in:
 
 `docs/INSTALLATION.md`
+
+## Historical source byte preservation
+
+The files under `reference_implementations/published_pipeline/` are
+provenance snapshots rather than actively maintained source files.
+
+Their exact byte representation is preserved, including the original
+CRLF line endings. The repository `.gitattributes` therefore exempts
+these historical Python snapshots from Git text and end-of-line
+normalization.
+
+This is necessary because SHA-256 provenance checks operate on file
+bytes, and line-ending normalization would change the hash even when
+the Python source text is otherwise identical.
+
+The reusable implementation under `src/psg_adhd/` remains subject to
+the repository's normal source-code line-ending policy.
