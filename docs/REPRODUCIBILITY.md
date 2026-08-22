@@ -99,3 +99,55 @@ The historical environment is recorded for provenance.
 Future supported environments may be added only after compatibility
 testing. Historical dependency versions must not be silently replaced
 and described as though they were the original environment.
+
+## Historical modeling reproducibility
+
+The standalone historical modeling script contains several unseeded
+stochastic operations:
+
+- `sklearn.utils.shuffle(...)` after sign-inversion augmentation;
+- outer `KFold(..., shuffle=True)`;
+- `RandomForestClassifier()`.
+
+None of these operations specifies `random_state`.
+
+Accordingly, two executions of the historical-compatible workflow can
+produce different:
+
+- augmented-row orderings;
+- outer-fold memberships;
+- fitted Random Forests;
+- selected hyperparameters;
+- fold-level metrics;
+- mean metrics;
+- impurity-based feature importance.
+
+Permutation importance is different: the historical script explicitly
+uses `random_state=42` and `n_repeats=10`.
+
+Therefore the public reconstruction distinguishes:
+
+1. **behavioral reproduction** — the same algorithmic operations are
+   implemented and tested;
+2. **exact numerical reproduction** — the same numerical outcome from a
+   particular historical run.
+
+The first is supported by the reconstruction and automated tests.
+
+The second cannot currently be claimed solely from the historical code,
+because the historical stochastic state for the unseeded operations was
+not recorded.
+
+## Modeling command
+
+The reconstructed historical-compatible modeling workflow can be
+started with:
+
+```bash
+python scripts/run_modeling.py \
+    --feature-dir <feature-csv-directory> \
+    --output-dir <result-directory>
+```
+
+The workflow exports numerical CSV result tables and explicitly warns
+that repeated historical-compatible runs may differ.

@@ -1,0 +1,112 @@
+# Historical standalone modeling configuration reconstructed directly
+# from ADHD_Final_Code.py.
+#
+# IMPORTANT:
+# This configuration is distinct from the integrated feature-extraction
+# script configuration. The standalone modeling script contains
+# unseeded stochastic operations.
+
+project:
+  name: ML-PSG-ADHD-Analysis
+  component: historical_standalone_modeling
+  source: ADHD_Final_Code.py
+
+input:
+  participant_id_column_position: first
+  label_column: ADHD
+  positive_label: Y
+
+  feature_selection:
+    method: positional
+    expression: "features_df.iloc[:, 1:-1]"
+
+augmentation:
+  enabled: true
+  timing: before_cross_validation
+  method: sign_inversion
+
+  implementation:
+    X_augmented: "np.vstack([features, -features])"
+    y_augmented: "np.hstack([labels, labels])"
+
+  shuffle:
+    enabled: true
+    implementation: sklearn.utils.shuffle
+    random_state: null
+
+model:
+  estimator: RandomForestClassifier
+  random_state: null
+
+parameter_grid:
+  n_estimators:
+    - 100
+    - 200
+    - 300
+
+  max_depth:
+    - 10
+    - 20
+    - 30
+
+  min_samples_split:
+    - 2
+    - 5
+    - 10
+
+  min_samples_leaf:
+    - 1
+    - 2
+    - 4
+
+nested_cross_validation:
+  outer:
+    method: KFold
+    n_splits: 5
+    shuffle: true
+    random_state: null
+
+  inner:
+    method: GridSearchCV
+    cv: 5
+    scoring:
+      - accuracy
+      - precision
+      - recall
+      - f1
+    refit: accuracy
+    n_jobs: -1
+
+metrics:
+  outer_test:
+    - accuracy
+    - precision
+    - recall
+    - f1
+
+feature_importance:
+  model_source: best_estimator_from_final_outer_fold
+
+  refit:
+    enabled: true
+    data: full_augmented_dataset
+
+  impurity:
+    enabled: true
+    attribute: feature_importances_
+
+  permutation:
+    enabled: true
+    n_repeats: 10
+    random_state: 42
+    data: full_augmented_dataset
+
+historical_randomness:
+  augmented_shuffle_seeded: false
+  outer_kfold_seeded: false
+  random_forest_seeded: false
+  permutation_importance_seeded: true
+
+reproducibility:
+  software_behavior_reconstructed: true
+  exact_published_numerical_reproduction_verified: false

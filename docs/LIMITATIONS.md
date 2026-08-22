@@ -63,3 +63,45 @@ software reproducibility.
 
 It is not a medical device and should not be used as an independent
 clinical diagnostic tool.
+
+## Historical augmentation and cross-validation dependence
+
+The historical modeling workflow performs sign-inversion augmentation
+before nested cross-validation.
+
+Each original feature vector and its sign-inverted counterpart therefore
+exist in the combined dataset before the outer folds are generated.
+
+Because ordinary row-level `KFold` is subsequently applied to that
+augmented dataset, paired augmented representations are not explicitly
+kept within the same fold.
+
+As a result, related representations derived from the same participant
+may be assigned to different training and test partitions.
+
+This behavior is preserved for historical provenance, but a new
+prospective evaluation should consider participant- or group-aware
+splitting and should perform any learned or synthetic preprocessing only
+within the appropriate training partition.
+
+## Historical stochasticity
+
+The historical augmented-data shuffle, outer KFold, and Random Forest
+classifier were unseeded.
+
+Consequently, the exact fold memberships, selected models, metrics, and
+feature importances from a historical execution are not deterministically
+recoverable from the source code alone.
+
+The reconstruction preserves this fact rather than adding an undocumented
+seed and presenting the resulting values as historical results.
+
+## Post-CV feature-importance interpretation
+
+The historical workflow takes the best estimator from the final outer
+fold, refits it on the entire augmented dataset, and then calculates
+feature importance on that same complete dataset.
+
+These importance values are therefore descriptive outputs of the
+historical fitted workflow and should not be interpreted as independently
+validated measures of causal or clinical importance.
