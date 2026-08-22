@@ -68,9 +68,9 @@ These metrics highlight the model's balanced performance in detecting ADHD cases
 ## Feature Importance
 
 **Permutation analysis** was applied to assess the contribution of each sleep stage. The most important features for ADHD classification were:
-- **Sleep Stage 3-4** (Importance â‰ˆ 0.14)
-- **Sleep Stage 1** (Importance â‰ˆ 0.12)
-- **Wake** (Importance â‰ˆ 0.09)
+- **Sleep Stage 3-4** (Importance Ã¢â€°Ë† 0.14)
+- **Sleep Stage 1** (Importance Ã¢â€°Ë† 0.12)
+- **Wake** (Importance Ã¢â€°Ë† 0.09)
 
 Shuffling these features resulted in significant drops in model performance, underscoring their relevance in ADHD diagnosis.
 
@@ -134,3 +134,24 @@ See:
 
 for details on execution, data boundaries, feature structure, synthetic
 inputs, and historical modeling behavior.
+
+## Installation
+
+The historical scientific environment is recorded using exact dependency
+versions.
+
+Runtime dependencies:
+
+- `requirements.txt`
+
+Historical environment record:
+
+- `requirements-historical.txt`
+
+Development and test dependencies:
+
+- `requirements-dev.txt`
+
+For complete setup instructions, see:
+
+`docs/INSTALLATION.md`

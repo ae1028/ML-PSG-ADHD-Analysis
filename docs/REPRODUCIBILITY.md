@@ -127,9 +127,9 @@ uses `random_state=42` and `n_repeats=10`.
 
 Therefore the public reconstruction distinguishes:
 
-1. **behavioral reproduction** — the same algorithmic operations are
+1. **behavioral reproduction** â€” the same algorithmic operations are
    implemented and tested;
-2. **exact numerical reproduction** — the same numerical outcome from a
+2. **exact numerical reproduction** â€” the same numerical outcome from a
    particular historical run.
 
 The first is supported by the reconstruction and automated tests.
@@ -151,3 +151,35 @@ python scripts/run_modeling.py \
 
 The workflow exports numerical CSV result tables and explicitly warns
 that repeated historical-compatible runs may differ.
+
+## Historical software environment
+
+The reconstructed historical scientific environment used Python
+3.9.19 with the following package versions:
+
+| Package | Version |
+| --- | ---: |
+| MNE | 1.6.1 |
+| NumPy | 1.26.4 |
+| pandas | 2.2.2 |
+| NetworkX | 3.2.1 |
+| Matplotlib | 3.8.4 |
+| seaborn | 0.13.2 |
+| scikit-learn | 1.4.2 |
+
+The exact runtime dependency pins are stored in:
+
+- `requirements.txt`
+- `requirements-historical.txt`
+- `pyproject.toml`
+
+Development and test requirements are stored separately in:
+
+- `requirements-dev.txt`
+
+The separation prevents development tooling from being presented as part
+of the historical scientific dependency record.
+
+Installation instructions are available in:
+
+`docs/INSTALLATION.md`

@@ -1,0 +1,9 @@
+# Development and test dependencies
+# =================================
+#
+# The scientific dependencies are inherited from the historical
+# environment definition.
+
+-r requirements-historical.txt
+
+pytest==8.4.1

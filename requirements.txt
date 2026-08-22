@@ -1,5 +1,11 @@
-# Exact package versions recorded from the original project environment.
-# Python version: 3.9.19
+# Core runtime dependencies
+# =========================
+#
+# These exact pins intentionally match the historical scientific
+# environment recorded in requirements-historical.txt.
+#
+# Historical Python version:
+# Python 3.9.19
 
 mne==1.6.1
 numpy==1.26.4

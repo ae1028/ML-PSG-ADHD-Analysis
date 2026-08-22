@@ -1,0 +1,19 @@
+# Historical scientific environment
+# =================================
+#
+# Python version used for the reconstructed historical environment:
+# Python 3.9.19
+#
+# These package versions were recorded from the project environment
+# associated with the historical implementation.
+#
+# pytest is intentionally excluded because it is a development/test
+# dependency rather than a scientific runtime dependency.
+
+mne==1.6.1
+numpy==1.26.4
+pandas==2.2.2
+networkx==3.2.1
+matplotlib==3.8.4
+seaborn==0.13.2
+scikit-learn==1.4.2
