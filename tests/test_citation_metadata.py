@@ -78,7 +78,7 @@ def test_bibtex_contains_authoritative_citation():
     assert "pages     = {1--4}" in text
 
     expected_author_sequence = (
-        "Eskorouchi, Amir and Wang, H. and Lee, J. W. "
+        "Eskorouchi, Amirhossein and Wang, H. and Lee, J. W. "
         "and Nayak, V. H. and Ojeda, N. B. and Fan, L.-W."
     )
 

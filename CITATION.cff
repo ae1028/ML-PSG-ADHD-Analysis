@@ -3,10 +3,13 @@ message: "If you use this repository, please cite the associated IEEE ISBI 2025 
 title: "ML-PSG-ADHD-Analysis"
 type: software
 version: 0.1.0
+date-released: 2026-08-25
+repository-code: "https://github.com/amirhossein-eskorouchi/ML-PSG-ADHD-Analysis"
+url: "https://github.com/amirhossein-eskorouchi/ML-PSG-ADHD-Analysis"
 
 authors:
   - family-names: Eskorouchi
-    given-names: Amir
+    given-names: Amirhossein
 
 keywords:
   - polysomnography
@@ -22,7 +25,7 @@ preferred-citation:
   title: "Machine Learning-Based Polysomnography Data Analysis for ADHD Diagnosis: A Focus on Sleep Stage-Based Biomarkers"
   authors:
     - family-names: Eskorouchi
-      given-names: Amir
+      given-names: Amirhossein
     - family-names: Wang
       given-names: "H."
     - family-names: Lee
